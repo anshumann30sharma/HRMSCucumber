@@ -11,8 +11,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.ie.InternetExplorerDriverService;
 
-import com.hrms.utils.Constants;
 import com.hrms.utils.ConfigsReader;
+import com.hrms.utils.Constants;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 

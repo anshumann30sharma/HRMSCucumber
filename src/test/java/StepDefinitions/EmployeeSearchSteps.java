@@ -43,23 +43,18 @@ public class EmployeeSearchSteps extends CommonMethod {
 
 	@Then("User will be able to view correct employee information")
 	public void user_will_be_able_to_view_correct_employee_information() {
-		
-		//================Validation===================//
+
+		// ================Validation===================//
 		wait(5);
 		String expectedId = "6961";
-		
 		List<WebElement> result = empList.resultTableData;
-		
-		boolean b = false;
-		
+
 		for (int i = 0; i < result.size(); i++) {
 			String actual = result.get(i).getText();
+			System.out.println("actual text---> " + actual);
 			wait(3);
-			if (actual.equalsIgnoreCase(expectedId)) {
-				b = true;
-				Assert.assertTrue("Test Case Failed", b);
-				break;
-			}
+			 Assert.assertEquals("Test Case Failed",expectedId, actual);
+			break;
 		}
 		tearDown();
 	}
