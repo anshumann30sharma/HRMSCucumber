@@ -1,5 +1,8 @@
 package com.hrms.testbase;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.util.ServiceLoader;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -14,6 +17,7 @@ import org.openqa.selenium.ie.InternetExplorerDriverService;
 import com.hrms.utils.Constants;
 import com.hrms.utils.ConfigsReader;
 
+import io.cucumber.messages.internal.com.google.protobuf.DescriptorProtos.ServiceOptionsOrBuilder;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
@@ -63,13 +67,14 @@ public class BaseClass {
 
 		ConfigsReader.propertiesReader(Constants.PROPERITESFILE_PATH);
 
-		String browser = ConfigsReader.getProperty("browser");
+		String browser = Constants.BROWSER;
 		String url = ConfigsReader.getProperty("ProjectUrl");
 
 		switch (browser.toLowerCase()) {
 
 		case "chrome":
-			System.setProperty(ChromeDriverService.CHROME_DRIVER_LOG_PROPERTY, "true");
+			System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
+
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			break;
