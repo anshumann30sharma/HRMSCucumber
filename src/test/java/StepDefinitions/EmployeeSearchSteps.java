@@ -47,16 +47,25 @@ public class EmployeeSearchSteps extends CommonMethod {
 		// ================Validation===================//
 		wait(5);
 		String expectedId = "6961";
+<<<<<<< HEAD
 
+=======
+>>>>>>> d9437f72131c8f8ccf89ff5f72c6363533174f05
 		List<WebElement> result = empList.resultTableData;
 
 		for (int i = 0; i < result.size(); i++) {
 			String actual = result.get(i).getText();
+			System.out.println("actual text---> " + actual);
 			wait(3);
+<<<<<<< HEAD
 
 			Assert.assertEquals("Test Case Failed", expectedId, actual);
 			break;
 
+=======
+			 Assert.assertEquals("Test Case Failed",expectedId, actual);
+			break;
+>>>>>>> d9437f72131c8f8ccf89ff5f72c6363533174f05
 		}
 		tearDown();
 	}

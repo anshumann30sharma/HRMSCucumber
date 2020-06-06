@@ -17,7 +17,7 @@ public class EmployeeListPage extends PIMMenu {
 
 //	WebElement empVerify= Driver.findBy( (xpath="//h1[text()='"+AddEmployee.firstName+" "+AddEmployee.lastName+"']")
 	
-	@FindBy (xpath="//input[@id='empsearch_id']")
+	@FindBy (id="empsearch_id")
 	public WebElement empSearchId;
 	
 	@FindBy (id="searchBtn")
@@ -28,6 +28,9 @@ public class EmployeeListPage extends PIMMenu {
 	
 	@FindBy (xpath="//table[@id='resultTable']//td/a")
 	public List<WebElement> resultTableData;
+	
+	@FindBy (xpath="(//table[@id='resultTable']//td/a)[1]")
+	public WebElement resultTableId;
 	
 	@FindBy (id="empsearch_employee_name_empName")
 	public WebElement empNamesrc;
