@@ -22,7 +22,7 @@ public class AddEmployee extends PIMMenu{
 	public static WebElement firstName;
 	
 	@FindBy (xpath="//input[@id='middleName']")
-	public WebElement middletName;
+	public WebElement middleName;
 	
 	@FindBy (xpath="//input[@id='lastName']")
 	public static WebElement lastName;

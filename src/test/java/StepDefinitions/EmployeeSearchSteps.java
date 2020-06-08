@@ -16,12 +16,7 @@ import io.cucumber.java.en.When;
 
 public class EmployeeSearchSteps extends CommonMethod {
 
-	@Given("user Navigate to HRMS Web Application")
-	public void user_Navigate_to_HRMS_Web_Application() {
-		setUp();
-	}
-
-	@And("user is logged with valid admin credentials")
+	@Given("user is logged with valid admin credentials")
 	public void user_is_logged_with_valid_admin_credentials() {
 		login.adminlogin();
 	}
@@ -46,36 +41,26 @@ public class EmployeeSearchSteps extends CommonMethod {
 
 		// ================Validation===================//
 		wait(5);
-		String expectedId = "6961";
-<<<<<<< HEAD
+		String expectedId = "6963";
 
-=======
->>>>>>> d9437f72131c8f8ccf89ff5f72c6363533174f05
 		List<WebElement> result = empList.resultTableData;
 
 		for (int i = 0; i < result.size(); i++) {
 			String actual = result.get(i).getText();
 			System.out.println("actual text---> " + actual);
 			wait(3);
-<<<<<<< HEAD
 
-			Assert.assertEquals("Test Case Failed", expectedId, actual);
+			Assert.assertEquals("Test Case Failed", actual, expectedId);
 			break;
-
-=======
-			 Assert.assertEquals("Test Case Failed",expectedId, actual);
-			break;
->>>>>>> d9437f72131c8f8ccf89ff5f72c6363533174f05
 		}
-		tearDown();
 	}
 
 	@When("user enters valid employee firstName and Last Name in Employee Name Text box")
 	public void user_enters_valid_employee_firstName_and_Last_Name_in_Employee_Name_Text_box() {
 		jsClick(empList.empNamesrc);
-		wait(5);
+		wait(2);
 		sendTextWithSpace(empList.empNamesrc, "Md Saifuzzaman", Keys.SPACE);
-		wait(5);
+		wait(2);
 
 	}
 

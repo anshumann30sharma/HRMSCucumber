@@ -74,7 +74,6 @@ public class BaseClass {
 
 		case "chrome":
 			System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
-
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			break;

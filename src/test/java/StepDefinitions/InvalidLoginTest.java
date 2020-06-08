@@ -1,5 +1,7 @@
 package StepDefinitions;
 
+
+
 import org.junit.Assert;
 
 import com.hrms.utils.CommonMethod;
@@ -9,11 +11,6 @@ import io.cucumber.java.en.*;
 
 public class InvalidLoginTest extends CommonMethod {
 	
-	@Given("User opens chrome browser and navigated to HRMS web Application")
-	public void naviagetToHRMS() {
-		setUp();
-	}
-
 	@When("user enters invalid Admin credentials")
 	public void enteringInvalidCredentials() {
 		sendText(login.username, "Admin");
@@ -35,7 +32,6 @@ public class InvalidLoginTest extends CommonMethod {
 		
 		Assert.assertEquals("Test Case Failed", expectedMsg, actualMsg);
 		
-		tearDown();
 	}
 
 	@When("user enters invalid ESS User credentials")
