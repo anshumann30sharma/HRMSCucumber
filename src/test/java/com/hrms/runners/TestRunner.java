@@ -11,7 +11,11 @@ import io.cucumber.junit.CucumberOptions;
 				monochrome = true , 
 		dryRun = true, 
 		strict = true, // checks for for implementation of all Gherkin Steps.
-		tags= "@homework"
+		tags= "@homework",
+		plugin= {
+				"pretty",
+				"html:target/defaultReport"
+		}
 		
 )
 

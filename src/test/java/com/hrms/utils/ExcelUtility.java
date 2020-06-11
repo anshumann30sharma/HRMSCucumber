@@ -1,8 +1,11 @@
 package com.hrms.utils;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -30,6 +33,17 @@ public class ExcelUtility {
 	public static String cellData(int rowIndex, int colIndex) {
 		return sheet.getRow(rowIndex).getCell(colIndex).toString();
 	}
+	
+	//Creating Cell Header
+	public static void createCellHeader(int colIndex, String ColName) {
+		sheet.getRow(0).getCell(colIndex).setCellValue(ColName);
+		
+	}
+	
+	public static void createCellData(int rowIndex,int colIndex, String data) {
+		sheet.getRow(rowIndex).getCell(colIndex).setCellValue(data);
+	}
+	
 	//return a 2D object array of data 
 	public static Object[][] excelIntoArray(String filePath, String sheetName){
 		openExcel(filePath);
@@ -45,5 +59,23 @@ public class ExcelUtility {
 			}
 		}
 		return data;
+	}
+	
+	public static void writeToExcel(String filePath, String sheetName,int rowIndex,int colIndex, String dataValue) {
+		openExcel(filePath);
+		loadSheet(sheetName);
+		createCellHeader(colIndex, dataValue);
+		if(rowIndex!=0) {
+		createCellData(rowIndex, colIndex, dataValue);
+		}
+		try {
+			FileOutputStream fos=new FileOutputStream(filePath);
+			book.write(fos);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 }
