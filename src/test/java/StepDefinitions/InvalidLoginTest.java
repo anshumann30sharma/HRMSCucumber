@@ -17,7 +17,7 @@ public class InvalidLoginTest extends CommonMethod {
 		sendText(login.password, "hum@nHrm123");
 	}
 
-	@And("click on log in button")
+	@And("click on login button")
 	public void clickLogInbutton() {
 		
 		click(login.loginbtn);
