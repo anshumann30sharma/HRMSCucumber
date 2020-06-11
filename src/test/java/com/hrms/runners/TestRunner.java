@@ -7,13 +7,19 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/features/", 
-glue = "StepDefinitions", 
-monochrome = true, 
-dryRun = false, 
-strict = true, // checks for implementation og Gherkin Steps
+			glue = "StepDefinitions", 
+			monochrome = true, 
+			dryRun = false, 
+			strict = true, // checks for implementation og Gherkin Steps
 																														
-tags = "@homework", 
-plugin = { "pretty", "html:target/CcDefaultReport" })
+			tags = "@homework", 
+			plugin = { "pretty", 
+					"html:target/CcDefaultReport",
+					"json:target/cucumber.json"
+			}
+		
+		
+		)
 
 public class TestRunner {
 

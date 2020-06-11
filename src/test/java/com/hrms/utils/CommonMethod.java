@@ -1,24 +1,11 @@
 package com.hrms.utils;
 
-import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.List;
-
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.NoSuchFrameException;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import java.io.*;
+import java.text.*;
+import java.util.*;
+import org.apache.commons.io.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.*;
 
 import com.hrms.testbase.PageInitializer;
 
@@ -228,6 +215,23 @@ public class CommonMethod extends PageInitializer {
 	}
 
 	/**
+	 * Method switches focus to Child Window
+	 */
+
+	public static void switchToChildWindow() {
+		String mainWindow = driver.getWindowHandle();
+		
+		Set<String> windows = driver.getWindowHandles();
+		
+		for (String window : windows) {
+			if (window.equals(mainWindow)) {
+				driver.switchTo().window(window);
+				break;
+			}
+		}
+	}
+
+	/**
 	 * This Method will return Explicit Wait object
 	 * 
 	 * @return
@@ -247,6 +251,12 @@ public class CommonMethod extends PageInitializer {
 	public static void waitForClickability(WebElement element) {
 		getWaitObject().until(ExpectedConditions.elementToBeClickable(element));
 	}
+	
+	/**
+	 *This Method will take an WebElement as a parameter And wait for the element
+	 * to be visible to take action.
+	 * @param element
+	 */
 
 	public static void waitForVisibility(WebElement element) {
 		getWaitObject().until(ExpectedConditions.visibilityOf(element));
@@ -264,15 +274,30 @@ public class CommonMethod extends PageInitializer {
 		element.click();
 
 	}
-
+	
+	/**
+	 * This Method is for uploading image in Webpage.
+	 * @param element
+	 * @param filePath
+	 */
 	public static void fileUpload(WebElement element, String filePath) {
+		element.clear();
 		element.sendKeys(filePath);
 	}
 
+	/**
+	 * This Method will take WebElement as an argument and click on that element
+	 * @param element
+	 */
 	public static void click(WebElement element) {
 		element.click();
 
 	}
+	
+	/**
+	 * This Method is for using "Thread.sleep" java wait
+	 * @param second
+	 */
 
 	public static void wait(int second) {
 		try {
@@ -317,23 +342,80 @@ public class CommonMethod extends PageInitializer {
 		return destinationfile;
 	}
 
+	/**
+	 *  this Method will return date & time for any event where it is concatenated
+	 * @return [yyyy_MM_dd_HH_mm_ss]
+	 */
 	public static String getTimeStemp() {
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
 		return sdf.format(date.getTime());
 	}
+	
+	/**
+	 * This Method is for creating object of Java Script Executor
+	 * @return
+	 */
 
 	public static JavascriptExecutor getJSObject() {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		return js;
 	}
-
+	
+	/**
+	 * This Method will take a WebElement as an argument and click on it using Java Script executor
+	 * @param element
+	 */
 	public static void jsClick(WebElement element) {
 		getJSObject().executeScript("arguments[0].click();", element);
 	}
 
+	/**
+	 * This Method will take a WebElement as an argument and scroll to it using Java Script executor
+	 * @param element
+	 */
 	public static void scrollToElement(WebElement element) {
 		getJSObject().executeScript("arguments[0].scrollIntoView(true);", element);
+	}
+
+	/**
+	 * Method that will scroll the page down based on the passed pixel parameters
+	 * 
+	 * @param pixel
+	 */
+	public static void scrollDown(int pixel) {
+		getJSObject().executeScript("window.scrollBy(0," + pixel + ")");
+	}
+
+	/**
+	 * Method that will scroll the page up based on the passed pixel parameters
+	 * 
+	 * @param pixel
+	 */
+	public static void scrollUp(int pixel) {
+		getJSObject().executeScript("window.scrollBy(0,-" + pixel + ")");
+	}
+
+	/**
+	 * This Method will take screen shot
+	 * 
+	 * @param fileName
+	 * @return byte[] of the screenshot.
+	 */
+
+	public static byte[] takeScreenShotCucumber(String fileName) {
+
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		byte[] picByte = ts.getScreenshotAs(OutputType.BYTES);
+		File sourceFile = ts.getScreenshotAs(OutputType.FILE);
+		destinationfile = Constants.SCREENSHOT_FILEPATH + fileName + getTimeStemp() + ".png";
+		try {
+			FileUtils.copyFile(sourceFile, new File(destinationfile));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return picByte;
 	}
 
 }

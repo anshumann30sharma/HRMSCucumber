@@ -17,7 +17,6 @@ import org.openqa.selenium.ie.InternetExplorerDriverService;
 import com.hrms.utils.ConfigsReader;
 import com.hrms.utils.Constants;
 
-import io.cucumber.messages.internal.com.google.protobuf.DescriptorProtos.ServiceOptionsOrBuilder;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
