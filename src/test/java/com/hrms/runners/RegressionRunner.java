@@ -11,7 +11,11 @@ import io.cucumber.junit.*;
 		monochrome = true, 
 		strict = true, 
 		plugin = {
-		"pretty", "html:target/Cucumber-Default-Report", "json:target/Cucumber.json" }
+		"pretty", 
+		"html:target/Cucumber-Default-Report", 
+		"json:target/Cucumber.json",
+		"rerun:target/failed.txt"
+		}
 
 )
 

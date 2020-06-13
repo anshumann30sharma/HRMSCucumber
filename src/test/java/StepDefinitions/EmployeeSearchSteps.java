@@ -41,7 +41,7 @@ public class EmployeeSearchSteps extends CommonMethod {
 
 		// ================Validation===================//
 		wait(5);
-		String expectedId = "6963";
+		String expectedId = "6961";
 
 		List<WebElement> result = empList.resultTableData;
 
