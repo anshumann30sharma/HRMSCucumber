@@ -5,15 +5,17 @@ import io.cucumber.junit.*;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = "/src/test/resources/features/", 
+		features = "src/test/resources/features/", 
 		glue = "StepDefinitions", 
-		dryRun = true, 
+		dryRun = false, 
 		monochrome = true, 
 		strict = true, 
+		
+		tags="@smoke2",
 		plugin = {
 		"pretty", 
-		"html:target/Cucumber-Default-Report", 
-		"json:target/Cucumber.json",
+		"html:target/CcDefaultReport",
+		"json:target/cucumber.json",
 		"rerun:target/failed.txt"
 		}
 

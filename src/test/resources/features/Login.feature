@@ -5,7 +5,7 @@ Feature: Login
   Description: The purpose of this feature file is to Test log in functionality with valid and invalid Credentials
   Acceptance Criteria: User should be able to login with Valid Credentials only.
 
-  @smoke
+  @smoke1
   Scenario: User should see error message with invalid credentials
     When I enter invalid UserName and Password and click on login button and see error message
       | UserName | Password   | ErrorMessage        |
