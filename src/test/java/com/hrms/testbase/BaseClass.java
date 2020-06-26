@@ -76,7 +76,7 @@ public class BaseClass {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			break;
-		case "fireFox":
+		case "firefox":
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 			break;
@@ -102,11 +102,51 @@ public class BaseClass {
 		return driver;
 	}
 
-	//@AfterMethod(alwaysRun = true)//
+//	@AfterMethod(alwaysRun = true)//
 	public static void tearDown() {
 		if (driver != null) {
 			driver.quit();
 		}
+	}
+	
+	public static WebDriver setUp1(String browser) {
+
+		ConfigsReader.propertiesReader(Constants.PROPERITESFILE_PATH);
+
+//		String browser1 = browser;
+		String url = ConfigsReader.getProperty("ProjectUrl");
+
+		switch (browser.toLowerCase()) {
+
+		case "chrome":
+			System.setProperty(ChromeDriverService.CHROME_DRIVER_SILENT_OUTPUT_PROPERTY, "true");
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
+			break;
+		case "firefox":
+			WebDriverManager.firefoxdriver().setup();
+			driver = new FirefoxDriver();
+			break;
+		case "edge":
+			System.setProperty(EdgeDriverService.EDGE_DRIVER_LOG_PROPERTY, "true");
+			WebDriverManager.edgedriver().setup();
+			driver = new EdgeDriver();
+			break;
+
+		case "ie":
+			System.setProperty(InternetExplorerDriverService.IE_DRIVER_LOGFILE_PROPERTY, "true");
+			WebDriverManager.iedriver().setup();
+			driver = new InternetExplorerDriver();
+			break;
+
+		default:
+			throw new RuntimeException("Browser is not supported");
+		}
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT_TIME, TimeUnit.SECONDS);
+		driver.get(url);
+		PageInitializer.initialize();
+		return driver;
 	}
 
 }
