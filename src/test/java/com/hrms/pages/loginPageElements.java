@@ -5,8 +5,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.hrms.testbase.BaseClass;
-import com.hrms.utils.CommonMethod;
-import com.hrms.utils.ConfigsReader;
+import com.hrms.utils.*;
+
+
+
+
 
 public class loginPageElements {
 
