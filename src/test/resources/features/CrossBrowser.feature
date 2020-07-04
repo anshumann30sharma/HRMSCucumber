@@ -11,5 +11,5 @@ Feature: Cross Browser Testing for HRMS Login
       | Browser |
       | chrome  |
       | firefox |
-      | edge    |
-      | edge    |
+      #| edge    |
+      #| ie      |

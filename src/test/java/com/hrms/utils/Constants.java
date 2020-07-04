@@ -4,8 +4,8 @@ public class Constants {
 	
 	public static final String PROPERITESFILE_PATH= System.getProperty("user.dir")+"/src/test/resources/Configs/Configuration.properties";
 	
-	public static int IMPLICIT_WAIT_TIME=20;
-	public static int EXPLICIT_WAIT_TIME=20;
+	public static int IMPLICIT_WAIT_TIME=10;
+	public static int EXPLICIT_WAIT_TIME=15;
 	
 	public static final String TEST_DATA_FILEPATH= System.getProperty("user.dir") + "/src/test/resources/testdata/";
 	
