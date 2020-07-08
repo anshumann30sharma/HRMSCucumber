@@ -6,7 +6,7 @@ import io.cucumber.java.*;
 
 public class Hooks {
 	
-	@Before
+//	@Before
 //	@ParameterType
 	public void start() {
 		BaseClass.setUp();

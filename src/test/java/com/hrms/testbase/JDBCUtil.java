@@ -1,6 +1,7 @@
 package com.hrms.testbase;
 
 import java.sql.*;
+import java.util.*;
 
 import org.junit.*;
 
@@ -61,13 +62,14 @@ public class JDBCUtil {
 		return resultSet;
 	}
 
-//	/**
-//	 * This is a getter for connection objects.
-//	 * @return
-//	 */
-//	public static Connection getConnection() {
-//		return connection;
-//	}
+	/**
+	 * This is a getter for connection objects.
+	 * 
+	 * @return
+	 */
+	public static Connection getConnection() {
+		return connection;
+	}
 
 	public static void DBInfo() {
 
@@ -100,17 +102,17 @@ public class JDBCUtil {
 	/**
 	 * This Method will create ResultSetMetaData Object after Running
 	 * "executeCode()" method;
-	 * @throws SQLException 
+	 * 
+	 * @throws SQLException
 	 */
 	public static void initializeRsMetadata() {
-			try {
-				rsMetadata = getResultSet().getMetaData();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		try {
+			rsMetadata = getResultSet().getMetaData();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-
 
 	/**
 	 * This getter will return ResultSetMetaData object after running
@@ -120,20 +122,51 @@ public class JDBCUtil {
 	 * @return ResultSetMetaData object
 	 */
 	public static ResultSetMetaData getRsMetadata() {
-			initializeRsMetadata();
+		initializeRsMetadata();
 		return rsMetadata;
+	}
+
+	/**
+	 * This Method is to Store Query Data in List of Maps
+	 * 
+	 * @param SQL Query as String
+	 * @return List<Map<String, String>>;
+	 */
+	public static List<Map<String, String>> dataListMap(String Query) {
+		List<Map<String, String>> dataList = new ArrayList<>();
+		try {
+			executeCode(Query);
+
+			initializeRsMetadata();
+
+			int colNum = getRsMetadata().getColumnCount();
+
+			while (getResultSet().next()) {
+				Map<String, String> dMap = new LinkedHashMap<>();
+				for (int i = 1; i <= colNum; i++) {
+					String colName = getRsMetadata().getColumnName(i);
+					String data = getResultSet().getObject(i).toString();
+					dMap.put(colName, data);
+				}
+				dataList.add(dMap);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return dataList;
 	}
 
 	@AfterClass
 	public static void closeDB() {
 
 		try {
-			if (!connection.isClosed()) {
-				connection.close();
+			if (!resultSet.isClosed()) {
+				resultSet.close();
 			} else if (!statement.isClosed()) {
 				statement.close();
-			} else if (!resultSet.isClosed()) {
-				resultSet.close();
+			} else if (!connection.isClosed()) {
+				connection.close();
 			}
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
