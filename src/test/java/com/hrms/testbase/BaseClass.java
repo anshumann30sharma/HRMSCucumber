@@ -2,9 +2,10 @@ package com.hrms.testbase;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.util.ServiceLoader;
+import java.sql.*;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
@@ -27,31 +28,29 @@ public class BaseClass {
 	/**
 	 * this method will run for every xml test.
 	 */
-/*	@BeforeTest(alwaysRun = true)
-	public void generateReport() {
-		public static ExtentReports report;
-		public static ExtentHtmlReporter htmlReport;
-		
-		public static String imageName="";
-		public static ExtentTest test;
-		htmlReport = new ExtentHtmlReporter(Constants.REPORT_FILEPATH+"HRMS"+CommonMethod.getTimeStemp()+".html");
-		htmlReport.config().setAutoCreateRelativePathMedia(true);
-		htmlReport.config().setDocumentTitle("HRMS Reports");
-		htmlReport.config().setReportName("HRMS Execution Report");
-		htmlReport.config().setTheme(Theme.DARK);
-		htmlReport.config().setTimeStampFormat("MMM dd, yyyy HH:mm:ss");
-
-		report = new ExtentReports();
-		report.attachReporter(htmlReport);
-
-	}
-
-//	@AfterTest(alwaysRun = true)//
-
-	public void writeReport() {
-		
-		report.flush();
-	}*/
+	/*
+	 * @BeforeTest(alwaysRun = true) public void generateReport() { public static
+	 * ExtentReports report; public static ExtentHtmlReporter htmlReport;
+	 * 
+	 * public static String imageName=""; public static ExtentTest test; htmlReport
+	 * = new
+	 * ExtentHtmlReporter(Constants.REPORT_FILEPATH+"HRMS"+CommonMethod.getTimeStemp
+	 * ()+".html"); htmlReport.config().setAutoCreateRelativePathMedia(true);
+	 * htmlReport.config().setDocumentTitle("HRMS Reports");
+	 * htmlReport.config().setReportName("HRMS Execution Report");
+	 * htmlReport.config().setTheme(Theme.DARK);
+	 * htmlReport.config().setTimeStampFormat("MMM dd, yyyy HH:mm:ss");
+	 * 
+	 * report = new ExtentReports(); report.attachReporter(htmlReport);
+	 * 
+	 * }
+	 * 
+	 * // @AfterTest(alwaysRun = true)//
+	 * 
+	 * public void writeReport() {
+	 * 
+	 * report.flush(); }
+	 */
 
 	/**
 	 * this Method will Set properties for Selenium test case and Initialize
@@ -61,7 +60,7 @@ public class BaseClass {
 	 * @param browser
 	 * @return
 	 */
-	//@BeforeMethod(alwaysRun = true)//
+	// @BeforeMethod(alwaysRun = true)//
 	public static WebDriver setUp() {
 
 		ConfigsReader.propertiesReader(Constants.PROPERITESFILE_PATH);
@@ -108,12 +107,11 @@ public class BaseClass {
 			driver.quit();
 		}
 	}
-	
+
 	public static WebDriver setUp1(String browser) {
 
 		ConfigsReader.propertiesReader(Constants.PROPERITESFILE_PATH);
 
-//		String browser1 = browser;
 		String url = ConfigsReader.getProperty("ProjectUrl");
 
 		switch (browser.toLowerCase()) {
@@ -148,5 +146,9 @@ public class BaseClass {
 		PageInitializer.initialize();
 		return driver;
 	}
+
+
+	
+	
 
 }

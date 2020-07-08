@@ -173,7 +173,7 @@ public class ReportsPageElements extends PIMMenu {
 
 	/**
 	 * ************************************************************************
-	 * ***Following WebElements will be enabled after Clicking add Button*******
+	 * ***Following WebElements will be enabled after Clicking ADD Button*******
 	 * ************************************************************************
 	 */
 

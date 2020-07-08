@@ -1,7 +1,7 @@
 @searchEmployee @sprint13
 Feature: Employee Search
   
-  @smoke 
+  @smoke2 
   Scenario: Search Employee by ID
  
     Given user is logged with valid admin credentials

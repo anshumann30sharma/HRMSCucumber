@@ -53,7 +53,12 @@
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
+<<<<<<< HEAD
 			<version>3.8.1</version>
+=======
+			<version>4.0.0</version>
+			<scope>test</scope>
+>>>>>>> 96f1173d216e86b12ec85c62667bef6a9cebf25c
 		</dependency>
 
 		<dependency>
@@ -61,9 +66,14 @@
 			<artifactId>cucumber-testng</artifactId>
 			<version>5.7.0</version>
 		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.20</version>
+		</dependency>
 
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -71,8 +81,10 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M4</version>
 				<configuration>
+					<parallel>methods</parallel>
+					<useUnlimitedThreads>true</useUnlimitedThreads>
 					<includes>
-						<include>**/*TestRunner.java</include>
+						<include>**/TestRunner.java</include>
 					</includes>
 
 					<testFailureIgnore>true</testFailureIgnore>

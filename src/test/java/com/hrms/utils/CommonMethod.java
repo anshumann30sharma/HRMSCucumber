@@ -397,7 +397,7 @@ public class CommonMethod extends PageInitializer {
 	}
 
 	/**
-	 * This Method will take screen shot
+	 * This Method will take screen shot for Cucumber Project
 	 * 
 	 * @param fileName
 	 * @return byte[] of the screenshot.

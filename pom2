@@ -62,11 +62,6 @@
 			<artifactId>cucumber-testng</artifactId>
 			<version>5.7.0</version>
 		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.20</version>
-		</dependency>
 
 	</dependencies>
 
@@ -77,10 +72,8 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M4</version>
 				<configuration>
-					<parallel>methods</parallel>
-					<useUnlimitedThreads>true</useUnlimitedThreads>
 					<includes>
-						<include>**/TestRunner.java</include>
+						<include>**/*SmokeRunner.java</include>
 					</includes>
 
 					<testFailureIgnore>true</testFailureIgnore>

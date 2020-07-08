@@ -7,9 +7,10 @@ import io.cucumber.java.*;
 public class Hooks {
 	
 //	@Before
-//	public void start() {
-//		BaseClass.setUp();
-//	}
+//	@ParameterType
+	public void start() {
+		BaseClass.setUp();
+	}
 	
 	@After
 	public void end(Scenario scenario) {
