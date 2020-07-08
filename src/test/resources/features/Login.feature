@@ -10,9 +10,6 @@ Feature: Login
     When I enter invalid UserName and Password and click on login button and see error message
       | UserName | Password   | ErrorMessage        |
       | Admin    | Admin123   | Invalid credentials |
-<<<<<<< HEAD
-      | Hello    | Syntax123! | Invalid credentials |
-=======
       | Saif123  | Saif123    | Invalid credentials |
       | Hello    | Syntax123! | Invalid credentials |
 
@@ -31,6 +28,5 @@ Feature: Login
       #| Admin    | Hum@nhrm123     | Admin     |
       #| Saif123  | Ayaan@rayyan123 | Md        |
 
->>>>>>> 13794bda4fa56a3f9483e69dbf247e7abf7b5a3d
       
       

@@ -17,7 +17,7 @@ public class loginPageElements {
 		PageFactory.initElements(BaseClass.driver, this);
 	}
 
-	@FindBy(id = "txtUsername")
+	@FindBy(css = "input#txtUsername")
 	public static WebElement username;
 
 	@FindBy(id = "txtPassword")

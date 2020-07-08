@@ -1,5 +1,7 @@
 package StepDefinitions;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebElement;
 
 import com.hrms.pages.DashboardPageElements;
@@ -21,6 +23,7 @@ public class CrossBrowserTest extends BaseClass {
 	@When("user enters valid Admin Credentials and click login Button")
 	public void user_enters_valid_Admin_Credentials_and_click_login_Button() {
 	
+		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		loginPageElements.adminlogin();
 	}
 

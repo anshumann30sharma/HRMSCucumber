@@ -9,7 +9,7 @@ Feature: Cross Browser Testing for HRMS Login
 
     Examples: 
       | Browser |
-      | chrome  |
-      | firefox |
-      | edge    |
+      #| chrome  |
+      #| firefox |
+      | ie      |
       | edge    |
