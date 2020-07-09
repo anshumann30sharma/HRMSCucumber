@@ -13,7 +13,7 @@ import io.cucumber.junit.CucumberOptions;
 			dryRun = false, 
 			strict = true, // checks for implementation og Gherkin Steps
 																														
-			tags = "@CB2", 
+			tags = "@DbTest", 
 			plugin = { "pretty", 
 					"html:target/CcDefaultReport",
 					"json:target/cucumber.json",
