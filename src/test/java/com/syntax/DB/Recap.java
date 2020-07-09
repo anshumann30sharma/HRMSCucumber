@@ -2,12 +2,12 @@ package com.syntax.DB;
 
 import java.sql.DatabaseMetaData;
 import java.util.*;
-import java.util.Map.Entry;
+import java.util.Map.*;
 
 import org.apache.commons.collections4.iterators.EntrySetMapIterator;
 import org.junit.*;
 
-import com.hrms.testbase.JDBCUtil;
+import com.hrms.utils.JDBCUtil;
 
 public class Recap extends JDBCUtil {
 	

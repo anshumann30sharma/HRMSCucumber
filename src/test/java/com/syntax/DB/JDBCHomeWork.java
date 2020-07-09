@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.*;
 import java.util.Map.*;
 import org.junit.*;
-import com.hrms.testbase.*;
+import com.hrms.utils.*;
 
 public class JDBCHomeWork extends JDBCUtil {
 

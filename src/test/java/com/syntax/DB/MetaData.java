@@ -3,7 +3,7 @@ package com.syntax.DB;
 import java.sql.*;
 import org.junit.*;
 
-import com.hrms.testbase.JDBCUtil;
+import com.hrms.utils.JDBCUtil;
 
 public class MetaData extends JDBCUtil {
 

@@ -1,11 +1,9 @@
 package StepDefinitions;
 
-<<<<<<< HEAD
 import java.util.concurrent.TimeUnit;
 
-=======
 import org.junit.Assert;
->>>>>>> 96f1173d216e86b12ec85c62667bef6a9cebf25c
+
 import org.openqa.selenium.WebElement;
 
 import com.hrms.pages.DashboardPageElements;
@@ -27,12 +25,9 @@ public class CrossBrowserTest extends CommonMethod {
 
 	@When("user enters valid Admin Credentials and click login Button")
 	public void user_enters_valid_Admin_Credentials_and_click_login_Button() {
-<<<<<<< HEAD
 	
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-=======
 		waitAndClick(login.username);
->>>>>>> 96f1173d216e86b12ec85c62667bef6a9cebf25c
 		loginPageElements.adminlogin();
 	}
 

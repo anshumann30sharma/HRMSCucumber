@@ -5,7 +5,7 @@ import java.util.Map.Entry;
 
 import org.junit.*;
 
-import com.hrms.testbase.*;
+import com.hrms.utils.*;
 
 public class DbTest extends JDBCUtil {
 	@Test

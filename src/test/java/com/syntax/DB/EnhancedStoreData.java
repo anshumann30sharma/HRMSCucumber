@@ -3,7 +3,7 @@ package com.syntax.DB;
 import java.util.*;
 import java.util.Map.*;
 import org.junit.*;
-import com.hrms.testbase.JDBCUtil;
+import com.hrms.utils.JDBCUtil;
 public class EnhancedStoreData extends JDBCUtil {
 
 	@Test

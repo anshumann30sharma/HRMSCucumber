@@ -5,11 +5,7 @@ public class Constants {
 	public static final String PROPERITESFILE_PATH= System.getProperty("user.dir")+"/src/test/resources/Configs/Configuration.properties";
 	
 	public static int IMPLICIT_WAIT_TIME=10;
-<<<<<<< HEAD
 	public static int EXPLICIT_WAIT_TIME=10;
-=======
-	public static int EXPLICIT_WAIT_TIME=15;
->>>>>>> 96f1173d216e86b12ec85c62667bef6a9cebf25c
 	
 	public static final String TEST_DATA_FILEPATH= System.getProperty("user.dir") + "/src/test/resources/testdata/";
 	

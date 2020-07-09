@@ -23,7 +23,7 @@ public class EmployeeSearchSteps extends CommonMethod {
 
 	@And("Naviagte to Employee List Page")
 	public void naviagte_to_Employee_List_Page() {
-		PIMMenu.clickSubMenu(empList.pimMenu, empList.employeeListMenu);
+		clickSubMenu(empList.pimMenu, empList.employeeListMenu);
 	}
 
 	@When("user enters valid employee ID in Id Text box")

@@ -7,7 +7,7 @@ import java.util.*;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
-import com.hrms.testbase.JDBCUtil;
+import com.hrms.utils.JDBCUtil;
 import com.hrms.utils.CommonMethod;
 
 import io.cucumber.java.en.*;

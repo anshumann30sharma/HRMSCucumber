@@ -27,9 +27,6 @@ Feature: Login
       #| UserName | Password        | FirstName |
       #| Admin    | Hum@nhrm123     | Admin     |
       #| Saif123  | Ayaan@rayyan123 | Md        |
-<<<<<<< HEAD
 
-=======
->>>>>>> 96f1173d216e86b12ec85c62667bef6a9cebf25c
       
       

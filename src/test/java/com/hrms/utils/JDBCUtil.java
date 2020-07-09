@@ -1,4 +1,4 @@
-package com.hrms.testbase;
+package com.hrms.utils;
 
 import java.sql.*;
 import java.util.*;
@@ -151,6 +151,27 @@ public class JDBCUtil {
 			e.printStackTrace();
 		}
 		return dataList;
+	}
+
+	public static Map<String, String> SingleDBDataMap(String query) {
+		Map<String, String> singleMap = new LinkedHashMap<>();
+
+		try {
+			executeCode(query);
+			initializeRsMetadata();
+			int colNum = getRsMetadata().getColumnCount();
+
+			while (getResultSet().next()) {
+				for (int i = 1; i <= colNum; i++) {
+					String key = getRsMetadata().getColumnLabel(i);
+					String value = getResultSet().getString(i);
+					singleMap.put(key, value);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return singleMap;
 	}
 
 	@AfterClass

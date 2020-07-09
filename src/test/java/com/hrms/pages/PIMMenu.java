@@ -60,15 +60,6 @@ public class PIMMenu {
 	@FindBy(xpath = "(//a[contains(@id, 'Reports')])[1]")
 	public static WebElement reportsMenu;
 	
-	public static void clickSubMenu(WebElement e1,WebElement e2) {
-		e1.click();
-		e2.click();
-	}
-	
-	public static void clickextSubMenu(WebElement e1,WebElement e2, WebElement e3) {
-		e1.click();
-		e2.click();
-		e3.click();
-	}
+
 
 }

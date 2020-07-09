@@ -267,7 +267,7 @@ public class ReportsPageElements extends PIMMenu {
 	
 	
 	public static void navigateToDefineReportPage() {
-		PIMMenu.clickSubMenu(PIMMenu.pimMenu,PIMMenu.reportsMenu);
+		CommonMethod.clickSubMenu(PIMMenu.pimMenu,PIMMenu.reportsMenu);
 		CommonMethod.click(addBtn);
 	}
 }

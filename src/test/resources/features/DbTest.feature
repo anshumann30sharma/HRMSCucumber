@@ -1,3 +1,7 @@
+#Search an employee in hrms by id
+#get the last name  from the table
+#validate ui last name against db
+
 Feature: Back-End Databaase Testing
   I want to use this template for vaidating UI & DataBase Entry
 

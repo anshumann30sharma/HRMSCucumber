@@ -294,6 +294,28 @@ public class CommonMethod extends PageInitializer {
 
 	}
 	
+	/**This Method will take WebElements as an argument and click on those elements
+	 * 
+	 * @param e1==>main Menu Element
+	 * @param e2==>direct SubMenu Element
+	 */
+	public static void clickSubMenu(WebElement e1,WebElement e2) {
+		e1.click();
+		e2.click();
+	}
+	
+	/**
+	 * This Method will take WebElements as an argument and click on those elements
+	 * @param e1==>main Menu Element
+	 * @param e2==>direct SubMenu Element
+	 * @param e3==> Menu element under Direct Sub Menu
+	 */
+	public static void clickextSubMenu(WebElement e1,WebElement e2, WebElement e3) {
+		e1.click();
+		e2.click();
+		e3.click();
+	}
+	
 	/**
 	 * This Method is for using "Thread.sleep" java wait
 	 * @param second

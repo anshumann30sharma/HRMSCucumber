@@ -5,7 +5,7 @@ import java.util.*;
 
 import org.junit.*;
 
-import com.hrms.testbase.*;
+import com.hrms.utils.*;
 
 public class JDBCDemo extends JDBCUtil {
 
