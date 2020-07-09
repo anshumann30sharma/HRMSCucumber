@@ -53,12 +53,10 @@
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
-<<<<<<< HEAD
-			<version>3.8.1</version>
-=======
+
 			<version>4.0.0</version>
 			<scope>test</scope>
->>>>>>> 96f1173d216e86b12ec85c62667bef6a9cebf25c
+
 		</dependency>
 
 		<dependency>
