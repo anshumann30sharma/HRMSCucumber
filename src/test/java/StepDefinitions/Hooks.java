@@ -1,15 +1,29 @@
 package StepDefinitions;
 
+import org.junit.BeforeClass;
+
+
 import com.hrms.testbase.*;
 import com.hrms.utils.*;
 import io.cucumber.java.*;
+import io.cucumber.java.Before;
 
 public class Hooks {
 	
-//	@Before
-//	@ParameterType
+	@Before
 	public void start() {
 		BaseClass.setUp();
+
+	}
+	
+//	@Before
+//	public void DBconnection() {
+//		JDBCUtil.DBConnection();
+//	}
+	
+	@After
+	public void closeDB() {
+		JDBCUtil.closeDB();
 	}
 	
 	@After

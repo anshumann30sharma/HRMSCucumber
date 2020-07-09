@@ -136,11 +136,8 @@ public class JDBCUtil {
 		List<Map<String, String>> dataList = new ArrayList<>();
 		try {
 			executeCode(Query);
-
 			initializeRsMetadata();
-
 			int colNum = getRsMetadata().getColumnCount();
-
 			while (getResultSet().next()) {
 				Map<String, String> dMap = new LinkedHashMap<>();
 				for (int i = 1; i <= colNum; i++) {
@@ -153,7 +150,6 @@ public class JDBCUtil {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 		return dataList;
 	}
 
